@@ -1,0 +1,19 @@
+<!--profile.wxml-->
+<view class="container">
+  <view class="wx-cells-group">
+    <view class="wx-cell flex-row" hover-class="wx-cell-highlight-color">
+        <text class="wx-cell-text">头像</text>
+        <image class="wx-cell-arrow" src="../../assets/icon-right-gray.png"></image>
+    </view>
+    <view class="wx-cell flex-row no-border" hover-class="wx-cell-highlight-color">
+        <text class="wx-cell-text">姓名</text>
+        <image class="wx-cell-arrow" src="../../assets/icon-right-gray.png"></image>
+    </view>
+  </view>
+  <view class="wx-cells-group">
+    <view class="wx-cell flex-row no-border" hover-class="wx-cell-highlight-color">
+        <text class="wx-cell-text">绑定手机号</text>
+        <image class="wx-cell-arrow" src="../../assets/icon-right-gray.png"></image>
+    </view>
+  </view>
+</view>

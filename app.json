@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/lesson/lesson",
+    "pages/detail/detail",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00c06d",
+    "navigationBarTitleText": "颂大阳光学堂课件",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f0f0f0",
+    "enablePullDownRefresh": true
+  }
+}

@@ -1,0 +1,21 @@
+<!--lesson.wxml-->
+<view class="container">
+<block wx:if="{{hasLesson}}">
+  <view class="wx-cells-plain no-border">
+    <block wx:for="{{lessonList}}" wx:key="" wx:for-index="idx" wx:for-item="lessonItem">
+      <view  bindtap="bindViewTap" class="wx-cell flex-row" data-title="{{lessonItem.title}}" data-id="{{lessonItem.id}}" hover-class="wx-cell-highlight-color">
+
+        <view class="wx-list-circle">
+          <view class="wx-list-dot"></view>
+        </view>
+        <text class="wx-cell-text">{{lessonItem.title}}</text>
+        <image class="wx-cell-arrow" src="../../assets/icon-right-gray.png"></image>
+      </view>
+    </block>
+  </view>
+</block>
+<block wx:else>
+  <image class="wx-img-none" src="../../assets/img-no-data.png"></image>
+  <text class="wx-lesson-none">老师还没有发布课件哦~</text>
+</block>
+</view>

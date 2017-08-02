@@ -1,0 +1,43 @@
+<!--index.wxml-->
+
+<block wx:if="{{loginSuccess}}">
+  <!-- 显示用户头像和昵称 -->
+<view class="container">
+  <view  bindtap="userAvatarTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{isUserAuthorized ? userInfo.avatarUrl : '../../assets/icon-user-avatar.png'}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{isUserAuthorized ? userInfo.nickName : "微信用户"}}</text>
+  </view>
+</view>
+
+<!-- 显示学生报班的列表 -->
+<view class="container" wx:if="{{hasClassInfo}}">
+  <view class="wx-cells-plain">
+    <block wx:for="{{classList}}" wx:key="" wx:for-index="idx" wx:for-item="courseItem">
+      <view  bindtap="classItemTap" class="wx-cell flex-row" data-title="{{courseItem.title}}" data-id="{{courseItem.id}}" hover-class="wx-cell-highlight-color">
+        <text class="wx-cell-text">{{courseItem.title}}</text>
+        <image class="wx-cell-arrow" src="../../assets/icon-right-gray.png"></image>
+      </view>
+    </block>
+  </view>
+</view>
+<view class="container" wx:else>
+  <block wx:if="{{isUserAuthorized}}">
+    <text class="login-label">您还未报班，欢迎报班再来</text>
+  </block>
+  <block wx:else>
+    <text class="tip-label">请点击"允许授权"来打开设置页面，允许我们使用您的用户信息，以便为您提供准确的课程信息和学习课件。</text>
+    <button class="login-button" type="primary" bindtap="agreeButtonTap">允许授权</button>
+  </block>
+</view>
+</block>
+<block wx:else>
+  <view class="container">
+    <text class="login-label">您还未登录，请先登录</text>
+    <button class="login-button" type="primary" bindtap="loginButtonTap">登录</button>
+  </view>
+</block>
+<view class="copyright">
+  <text class="version-label">阳光学堂 版本号v1.0.3</text>
+</view>
+
+

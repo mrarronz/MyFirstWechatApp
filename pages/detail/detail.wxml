@@ -1,0 +1,69 @@
+<!--detail.wxml-->
+<view class="page-container">
+  <text class="wx-lesson-title">{{options.title}}</text>
+  <text class="wx-lesson-time">更新时间: {{createdTime}}</text>
+  <text class="wx-lesson-description">{{description}}</text>
+  <view class="wx-title-divider"></view>
+
+<!--显示视频-->
+  <block wx:if="{{hasVideo}}">
+    <view class="wx-list-header-container">
+      <text class="wx-list-header-text">课堂视频</text>
+    </view>
+    <view class="wx-cells-plain">
+      <block wx:for="{{videoList}}" wx:key="" wx:for-item="videoItem">
+        <view class="wx-cell flex-row">
+          <video id="myVideo" class="wx-list-video" src="{{videoItem.attachment}}" objectFit="cover" poster="https://www.xuetang365.com/Public/images/img-course-default.png" bindplay="videoPlayStart" bindpause="videoPlayPaused"></video>
+        </view>
+      </block>
+    </view>
+  </block>
+
+<!--展示单词语音部分-->
+  <block wx:if="{{hasAudio}}">
+    <audio src="" id="myAudio" bindplay="audioPlayStart" bindpause="audioPlayPaused"></audio>
+    <view class="wx-list-header-container">
+      <text class="wx-list-header-text">语音朗读</text>
+    </view>
+    <view class="wx-cells-plain">
+      <block wx:for="{{audioList}}" wx:key="" wx:for-index="idx" wx:for-item="audioItem">
+        <view class="wx-cell flex-row" bindtap="audioPlayTap" data-url="{{audioItem.attachment}}" data-playindex="{{idx}}" hover-class="wx-cell-highlight-color">
+          <text class="wx-lesson-item-text">{{audioItem.title}}</text>
+          <text class="wx-lesson-item-playing" hidden="{{idx!=audioPlayIndex}}">正在播放</text>
+          <image class="wx-cell-arrow" src="../../assets/icon-play-audio.png"></image>
+        </view>
+      </block>
+    </view>
+  </block>
+
+  <!--显示图片-->
+  <block wx:if="{{hasPicture}}">
+    <view class="wx-list-header-container">
+      <text class="wx-list-header-text">图片课件</text>
+    </view>
+    
+    <scroll-view class="wx-scroll-cell" scroll-x="true">
+      <block wx:for="{{pictures}}" wx:key="" wx:for-item="picItem">
+        <image class="wx-scroll-item-picture" src="../../assets/icon-courseware-picture.png" bindtap="previewImageTap" data-url="{{picItem.attachment}}"></image>
+      </block>
+    </scroll-view>
+  </block>
+  
+  <!--显示文件、笔记列表-->
+  <block wx:if="{{hasDoc}}">
+    <view class="wx-list-header-container">
+      <text class="wx-list-header-text">文档资料</text>
+    </view>
+    <view class="wx-cells-plain">
+      <block wx:for="{{documents}}" wx:key="" wx:for-item="docItem">
+        <view class="wx-cell flex-row" bindtap="openDocumentTap" data-fileurl="{{docItem.attachment}}" data-filetype="{{docItem.type}}" hover-class="wx-cell-highlight-color">
+          <text class="wx-lesson-item-text">{{docItem.title}}</text>
+          <image class="wx-download-icon" src="../../assets/icon-download.png" catchtap="downloadTap" data-fileurl="{{docItem.attachment}}"></image>
+          <block wx:if="{{docItem.type != 108}}">
+            <image class="wx-cell-arrow" src="../../assets/icon-right-gray.png"></image>
+          </block>
+        </view>
+      </block>
+    </view>
+  </block>
+</view>

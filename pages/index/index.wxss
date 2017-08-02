@@ -1,0 +1,52 @@
+/**index.wxss**/
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40rpx 0;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa; 
+}
+
+.login-label {
+  font-size: 32rpx;
+  color: #666666;
+  margin: 300rpx 30rpx 30rpx 30rpx;
+}
+
+.login-button {
+  font-size: 32rpx;
+  height: 88rpx;
+  width: 240rpx;
+}
+
+.copyright {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  bottom: 40rpx;
+  width: 100%;
+  z-index: -100;
+}
+
+.version-label {
+  color: #aaa; 
+  font-size: 24rpx;
+}
+
+.tip-label {
+  font-size: 32rpx;
+  color: #999999;
+  margin: 220rpx 30rpx 30rpx 30rpx;
+}
